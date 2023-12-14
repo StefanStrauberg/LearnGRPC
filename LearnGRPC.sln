@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelloWorld", "HelloWorld", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcHelloWorldServer", "src\HelloWorld\GrpcHelloWorldServer\GrpcHelloWorldServer.csproj", "{52BAAC85-966B-4343-A302-D45CDC9D7BC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcHelloWorldClient", "src\HelloWorld\GrpcHelloWorldClient\GrpcHelloWorldClient.csproj", "{D77EBC1A-78C3-4C8C-9B1E-2EF77B0F70B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,9 +24,14 @@ Global
 		{52BAAC85-966B-4343-A302-D45CDC9D7BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52BAAC85-966B-4343-A302-D45CDC9D7BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52BAAC85-966B-4343-A302-D45CDC9D7BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D77EBC1A-78C3-4C8C-9B1E-2EF77B0F70B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D77EBC1A-78C3-4C8C-9B1E-2EF77B0F70B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D77EBC1A-78C3-4C8C-9B1E-2EF77B0F70B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D77EBC1A-78C3-4C8C-9B1E-2EF77B0F70B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{784A4F6B-A9E0-4B8D-9C42-32692E6B0E47} = {7A082FBA-ED0B-44AF-86C1-A61F1E2682CD}
 		{52BAAC85-966B-4343-A302-D45CDC9D7BC4} = {784A4F6B-A9E0-4B8D-9C42-32692E6B0E47}
+		{D77EBC1A-78C3-4C8C-9B1E-2EF77B0F70B2} = {784A4F6B-A9E0-4B8D-9C42-32692E6B0E47}
 	EndGlobalSection
 EndGlobal

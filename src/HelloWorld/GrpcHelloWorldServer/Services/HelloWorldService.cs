@@ -3,19 +3,22 @@ using GrpcHelloWorldServer.Protos;
 
 namespace GrpcHelloWorldServer.Services;
 
-public class HelloWorldService(ILogger<HelloWorldService> logger) : HelloService.HelloServiceBase
+public class HelloWorldService(ChatRoom chatroomService) : HelloService.HelloServiceBase
 {
-    readonly ILogger<HelloWorldService> _logger = logger
-        ?? throw new ArgumentNullException(nameof(logger));
+    readonly ChatRoom _chatroomService = chatroomService
+        ?? throw new ArgumentNullException(nameof(chatroomService));
 
-    public override Task<HelloResponse> SayHello(HelloRequest request, ServerCallContext context)
+    public override async Task SayHello(IAsyncStreamReader<Message> requestStream, IServerStreamWriter<Message> responseStream, ServerCallContext context)
     {
-        string resultMessage = $"Hello {request.Name}";
-        var response = new HelloResponse
-        {
-            Message = resultMessage
-        };
+        if (!await requestStream.MoveNext()) return;
 
-        return Task.FromResult(response);
+        do
+        {
+            _chatroomService.Join(requestStream.Current.User, responseStream);
+            await _chatroomService.BroadcastMessageAsync(requestStream.Current);
+        } while (await requestStream.MoveNext());
+
+        _chatroomService.Remove(context.Peer);
+
     }
 }
