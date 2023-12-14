@@ -5,7 +5,7 @@ This repository made by the course [Using gRPC in Microservices Communication wi
 
 gRPC has found huge success because of using HTTP/2 instead of HTTP/1.1 and protocol buffers instead of XML and JSON.
 
-### HTTP/2
+## HTTP/2
 HTTP/2 is the latest version of the HTTP protocol which was launched in 2015 to make applications faster and more robust by addressing the drawbacks of the HTTP/1.1 protocol. HTTP/2 has been picking up fast and most browsers support HTTP/2 nowadays.
 
 - Multiplexing: Enable request and response multiplexing which permits multiple requests and responses to be sent at the same time in a single TCP connection
@@ -75,19 +75,19 @@ Basically we will implement e-commerce logic with only gRPC communication. We wi
 ## ProductGrpc Server Application
 First of all, we are going to develop ProductGrpc project. This will be asp.net gRPC server web application and expose apis for Product Crud operations.
 
-## Product Worker Service
+### Product Worker Service
 After that, we are going to develop Product Worker Service project for consuming ProductGrpc services. This product worker service project will be the client of ProductGrpc application and generate products and insert bulk product records into Product database by using client streaming gRPC proto services of ProductGrpc application. This operation will be in a time interval and looping as a service application.
 
-## ShoppingCartGrpc Server Application
+### ShoppingCartGrpc Server Application
 After that, we are going to develop ShoppingCartGrpc project. This will be asp.net gRPC server web application and expose apis for SC and SC items operations. The grpc services will be create sc and add or remove item into sc.
 
-## ShoppingCart Worker Service
+### ShoppingCart Worker Service
 After that, we are going to develop ShoppingCart Worker Service project for consuming ShoppingCartGrpc services. This ShoppingCart worker service project will be the client of both ProductGrpc and ShoppingCartGrpc application. This worker service will read the products from ProductGrpc and create sc and add product items into sc by using gRPC proto services of ProductGrpc and ShoppingCartGrpc application. This operation will be in a time interval and looping as a service application.
 
-## DiscountGrpc Server Application
+### DiscountGrpc Server Application
 When adding product item into SC, it will retrieve the discount value and calculate the final price of product. This communication also will be gRPC call with SCGrpc and DiscountGrpc application.
 
-## Identity Server
+### Identity Server
 Also, we are going to develop centralized standalone Authentication Server with implementing IdentityServer4 package and the name of microservice is Identity Server.
 Identity Server4 is an open source framework which implements OpenId Connect and OAuth2 protocols for .Net Core.
 With IdentityServer, we can provide protect our SC gRPC services with OAuth 2.0 and JWT tokens. SC Worker will get the token before send request to SC Grpc server application.
