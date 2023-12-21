@@ -1,5 +1,4 @@
 using Grpc.Core;
-using ProductGrpc;
 
 namespace ProductGrpc.Services;
 
